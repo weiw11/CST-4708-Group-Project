@@ -33,7 +33,6 @@ namespace Group_Project
             {
                 _loggedIn = true;
                 AddUser();
-                // TODO: Maybe check password conditions
             }
 
         }
