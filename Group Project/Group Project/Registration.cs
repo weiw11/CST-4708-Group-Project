@@ -8,14 +8,13 @@ namespace Group_Project
 {
     public partial class Registration : Form
     {
-        private String username, password1, password2;
-        private String connectionString = Main.CONN_STRING;
+        private String firstname, lastname, creditcard, username, password1, password2;
+        private String connectionString = SQLConn.CONN_STRING;
         private static Boolean _loggedIn = false;
 
         public static Boolean loggedIn
         {
             get { return loggedIn; }
-            set { _loggedIn = loggedIn; }
         }
 
         public Registration()
@@ -25,9 +24,12 @@ namespace Group_Project
 
         private void RegisterAccount(object sender, EventArgs e)
         {
-            username = txtRegUser.Text.ToString();
-            password1 = txtRegPass1.Text.ToString();
-            password2 = txtRegPass2.Text.ToString();
+            firstname = txtRegisFName.Text.ToString();
+            lastname = txtRegisLName.Text.ToString();
+            creditcard = txtRegisCC.Text.ToString();
+            username = txtRegisUser.Text.ToString();
+            password1 = txtRegisPass1.Text.ToString();
+            password2 = txtRegisPass2.Text.ToString();
             Console.WriteLine("Username: " + username + " and Password: " + password1);
             if (CheckRegister() && checkPassword())
             {
@@ -62,7 +64,7 @@ namespace Group_Project
                         } else
                         {
                             MessageBox.Show("Username already exist!");
-                            txtRegUser.Clear();
+                            txtRegisUser.Clear();
                         }
                         connection.Close();
                     }
@@ -75,12 +77,15 @@ namespace Group_Project
         private void AddUser()
         {
             Console.WriteLine("Adding user...");
-            String queryString = "INSERT INTO Customer (Username, Password) " +
-                "VALUES (@username, @password);";
+            String queryString = "INSERT INTO Customer (FirstName, LastName, CreditCard, Username, Password) " +
+                "VALUES (@firstname, @lastname, @creditcard, @username, @password);";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = new SqlCommand(queryString, connection))
                 {
+                    command.Parameters.AddWithValue("@firstname", firstname);
+                    command.Parameters.AddWithValue("@lastname", lastname);
+                    command.Parameters.AddWithValue("@creditcard", creditcard);
                     command.Parameters.AddWithValue("@username", username);
                     command.Parameters.AddWithValue("@password", password1);
                     command.Connection.Open();
@@ -111,6 +116,8 @@ namespace Group_Project
                 return true;
             } else
             {
+                txtRegisPass1.Clear();
+                txtRegisPass2.Clear();
                 ttRegPass.Show(pwReqInfo, btnRegReg);
             }
             return false;
@@ -125,22 +132,22 @@ namespace Group_Project
         }
 
         // https://stackoverflow.com/a/3373600
-        static bool IsLetter(char c)
+        private static bool IsLetter(char c)
         {
             return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
         }
 
-        static bool IsDigit(char c)
+        private static bool IsDigit(char c)
         {
             return c >= '0' && c <= '9';
         }
 
-        static bool IsSymbol(char c)
+        private static bool IsSymbol(char c)
         {
             return c > 32 && c < 127 && !IsDigit(c) && !IsLetter(c);
         }
 
-        static bool IsValidPassword(String password)
+        private static bool IsValidPassword(String password)
         {
             return
                password.Any(c => IsLetter(c)) &&
