@@ -9,7 +9,7 @@ namespace Group_Project
     public partial class Registration : Form
     {
         private String firstname, lastname, creditcard, username, password1, password2;
-        private String connectionString = SQLConn.CONN_STRING;
+        private String connectionString = Global.CONN_STRING;
         private static Boolean _loggedIn = false;
 
         public static Boolean loggedIn
