@@ -28,76 +28,80 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbUsername = new System.Windows.Forms.Label();
-            this.lbPassword = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnRegister = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.lbRegUser = new System.Windows.Forms.Label();
+            this.lbRegPass = new System.Windows.Forms.Label();
+            this.txtRegUser = new System.Windows.Forms.TextBox();
+            this.txtRegPass = new System.Windows.Forms.TextBox();
+            this.btnRegReg = new System.Windows.Forms.Button();
+            this.btnRegCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lbUsername
+            // lbRegUser
             // 
-            this.lbUsername.AutoSize = true;
-            this.lbUsername.Location = new System.Drawing.Point(44, 44);
-            this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(58, 13);
-            this.lbUsername.TabIndex = 0;
-            this.lbUsername.Text = "Username:";
+            this.lbRegUser.AutoSize = true;
+            this.lbRegUser.Location = new System.Drawing.Point(44, 44);
+            this.lbRegUser.Name = "lbRegUser";
+            this.lbRegUser.Size = new System.Drawing.Size(58, 13);
+            this.lbRegUser.TabIndex = 0;
+            this.lbRegUser.Text = "Username:";
             // 
-            // lbPassword
+            // lbRegPass
             // 
-            this.lbPassword.AutoSize = true;
-            this.lbPassword.Location = new System.Drawing.Point(44, 80);
-            this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(56, 13);
-            this.lbPassword.TabIndex = 1;
-            this.lbPassword.Text = "Password:";
+            this.lbRegPass.AutoSize = true;
+            this.lbRegPass.Location = new System.Drawing.Point(44, 80);
+            this.lbRegPass.Name = "lbRegPass";
+            this.lbRegPass.Size = new System.Drawing.Size(56, 13);
+            this.lbRegPass.TabIndex = 1;
+            this.lbRegPass.Text = "Password:";
             // 
-            // txtUsername
+            // txtRegUser
             // 
-            this.txtUsername.Location = new System.Drawing.Point(105, 41);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(181, 20);
-            this.txtUsername.TabIndex = 2;
+            this.txtRegUser.Location = new System.Drawing.Point(105, 41);
+            this.txtRegUser.MaxLength = 15;
+            this.txtRegUser.Name = "txtRegUser";
+            this.txtRegUser.Size = new System.Drawing.Size(181, 20);
+            this.txtRegUser.TabIndex = 2;
             // 
-            // txtPassword
+            // txtRegPass
             // 
-            this.txtPassword.Location = new System.Drawing.Point(106, 77);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(180, 20);
-            this.txtPassword.TabIndex = 3;
+            this.txtRegPass.Location = new System.Drawing.Point(106, 77);
+            this.txtRegPass.MaxLength = 16;
+            this.txtRegPass.Name = "txtRegPass";
+            this.txtRegPass.PasswordChar = '*';
+            this.txtRegPass.Size = new System.Drawing.Size(180, 20);
+            this.txtRegPass.TabIndex = 3;
             // 
-            // btnRegister
+            // btnRegReg
             // 
-            this.btnRegister.Location = new System.Drawing.Point(211, 112);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(75, 23);
-            this.btnRegister.TabIndex = 4;
-            this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = true;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            this.btnRegReg.Location = new System.Drawing.Point(211, 112);
+            this.btnRegReg.Name = "btnRegReg";
+            this.btnRegReg.Size = new System.Drawing.Size(75, 23);
+            this.btnRegReg.TabIndex = 4;
+            this.btnRegReg.Text = "Register";
+            this.btnRegReg.UseVisualStyleBackColor = true;
+            this.btnRegReg.Click += new System.EventHandler(this.RegisterAccount);
             // 
-            // btnCancel
+            // btnRegCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(47, 112);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 5;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnRegCancel.Location = new System.Drawing.Point(47, 112);
+            this.btnRegCancel.Name = "btnRegCancel";
+            this.btnRegCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnRegCancel.TabIndex = 5;
+            this.btnRegCancel.Text = "Cancel";
+            this.btnRegCancel.UseVisualStyleBackColor = true;
+            this.btnRegCancel.Click += new System.EventHandler(this.CancelRegistration);
             // 
             // Registration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 177);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnRegister);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.lbPassword);
-            this.Controls.Add(this.lbUsername);
+            this.Controls.Add(this.btnRegCancel);
+            this.Controls.Add(this.btnRegReg);
+            this.Controls.Add(this.txtRegPass);
+            this.Controls.Add(this.txtRegUser);
+            this.Controls.Add(this.lbRegPass);
+            this.Controls.Add(this.lbRegUser);
             this.Name = "Registration";
             this.Text = "Registration";
             this.ResumeLayout(false);
@@ -107,11 +111,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbUsername;
-        private System.Windows.Forms.Label lbPassword;
-        private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Button btnRegister;
-        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lbRegUser;
+        private System.Windows.Forms.Label lbRegPass;
+        private System.Windows.Forms.TextBox txtRegUser;
+        private System.Windows.Forms.TextBox txtRegPass;
+        private System.Windows.Forms.Button btnRegReg;
+        private System.Windows.Forms.Button btnRegCancel;
     }
 }
