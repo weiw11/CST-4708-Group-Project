@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="ttRegPass.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>61</value>
-  </metadata>
+  <data name="lbAboutUsInfo.Text" xml:space="preserve">
+    <value>QuillComics is an online comics book retail store. We offer a variety of comic books published by well-known publishers such as Marvel Comics and DC Comics. Our comic books are always up to date and in brand new condition.</value>
+  </data>
+  <data name="lbMissionInfo.Text" xml:space="preserve">
+    <value>To provide our customers with a large variety of quality, affordable, and up-to-date comic books. We greatly value our customers, that is why we offer our mechandises at a lower price than most comic book retailers.</value>
+  </data>
 </root>

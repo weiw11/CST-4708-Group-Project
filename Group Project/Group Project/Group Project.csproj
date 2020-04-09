@@ -12,6 +12,9 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,11 +27,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutUs.Designer.cs">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Account.cs" />
     <Compile Include="Catalog.cs">
       <SubType>Form</SubType>
@@ -75,12 +81,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ComicsDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Global.cs" />
-    <Compile Include="Main.cs">
+    <Compile Include="ContactUs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="ContactUs.Designer.cs">
+      <DependentUpon>ContactUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Registration.cs">
       <SubType>Form</SubType>
@@ -90,11 +102,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutUs.resx">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Catalog.resx">
       <DependentUpon>Catalog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <EmbeddedResource Include="ContactUs.resx">
+      <DependentUpon>ContactUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -104,6 +122,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
@@ -140,6 +159,11 @@
     <Content Include="Comics.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="res\Background.jpg" />
+    <Content Include="res\Background.png" />
+    <Content Include="res\BackgroundReduced.jpg" />
+    <Content Include="res\Black.png" />
+    <Content Include="res\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
