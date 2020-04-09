@@ -11,9 +11,8 @@ namespace Group_Project
 {
     public partial class Catalog : Form
     {
-        private String connectionString = Global.CONN_STRING;
+        private readonly String connectionString = Global.CONN_STRING;
         private DataTable dt = new DataTable();
-        private Boolean userClosing;
 
         public Catalog()
         {
@@ -41,7 +40,7 @@ namespace Group_Project
         {
             dt.Clear();
             String queryString = "SELECT * FROM Comic_Info;";
-            
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = new SqlCommand(queryString, connection))
@@ -72,7 +71,7 @@ namespace Group_Project
             {
                 using (SqlCommand command = new SqlCommand(queryString, connection))
                 {
-                    command.Parameters.AddWithValue("@search" , "%"+search+"%");
+                    command.Parameters.AddWithValue("@search", "%" + search + "%");
                     SqlDataAdapter adapter = new SqlDataAdapter();
                     adapter.SelectCommand = command;
                     adapter.Fill(dt);
@@ -160,15 +159,15 @@ namespace Group_Project
         private void lbCart_Click(object sender, EventArgs e)
         {
             // TODO: Add Cart menu
-            //Cart cart = new Cart();
-            //cart.Show();
+            //Global.ShowCart();
+            //this.Close();
         }
 
         private void lbUsername_Click(object sender, EventArgs e)
         {
             // TODO: Add user profile menu?
-            //Profile p = new Profile;
-            //p.Show();
+            //Global.ShowProfile();
+            //this.Close();
         }
 
         private void btnAddToCart_Click(object sender, EventArgs e)
@@ -178,52 +177,14 @@ namespace Group_Project
 
         private void btnBackToLogin_Click(object sender, EventArgs e)
         {
-            userClosing = true;
+            Global.ShowLogin();
             this.Close();
-        }
-
-        private void ShowLogin()
-        {
-            Login l = new Login();
-            l.Visible = true;
-            Console.WriteLine("Login screen unhid");
         }
 
         private void Catalog_FormClosing(object sender, FormClosingEventArgs e)
         {
-            switch (e.CloseReason)
-            {
-                case CloseReason.ApplicationExitCall:
-                    Application.Exit();
-                    break;
-                case CloseReason.FormOwnerClosing:
-                    Application.Exit();
-                    break;
-                case CloseReason.MdiFormClosing:
-                    Application.Exit();
-                    break;
-                case CloseReason.None:
-                    Application.Exit();
-                    break;
-                case CloseReason.TaskManagerClosing:
-                    Application.Exit();
-                    break;
-                case CloseReason.UserClosing:
-                    if (userClosing)
-                    {
-                        ShowLogin();
-                    } else
-                    {
-                        Application.Exit();
-                    }
-                    break;
-                case CloseReason.WindowsShutDown:
-                    Application.Exit();
-                    break;
-                default:
-                    Application.Exit();
-                    break;
-            }
+            // TODO: Handle opening profile/login when this closes.
+            //Global.FormCloseEVent(e);
         }
     }
 }

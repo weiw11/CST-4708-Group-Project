@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Group_Project
@@ -17,6 +10,7 @@ namespace Group_Project
             InitializeComponent();
             TBemail.Select();
         }
+
         private void BTNsend_Click(object sender, EventArgs e)
         {
             if (TBemail.Text.Length == 0)
@@ -34,17 +28,19 @@ namespace Group_Project
             else
             {
                 MessageBox.Show("Message sent. Thank you for contacting us!");
-                this.Close();
-                Login login = new Login();
-                login.Show();
+                ShowLogin();
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ShowLogin();
+        }
+
+        private void ShowLogin()
+        {
+            Global.ShowLogin();
             this.Close();
-            Login login = new Login();
-            login.Show();
         }
     }
 }

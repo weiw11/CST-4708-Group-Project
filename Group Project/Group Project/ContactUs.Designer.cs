@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.TBemail = new System.Windows.Forms.TextBox();
-            this.BTNlogin = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.TBmessage = new System.Windows.Forms.RichTextBox();
+            this.TBemail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -47,8 +47,8 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.31579F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.68421F));
-            this.tableLayoutPanel1.Controls.Add(this.BTNlogin, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnSend, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnCancel, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.TBmessage, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.TBemail, 1, 0);
@@ -62,6 +62,32 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(447, 300);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
+            // btnSend
+            // 
+            this.btnSend.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnSend.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnSend.Font = new System.Drawing.Font("Lucida Sans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSend.Location = new System.Drawing.Point(354, 251);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(90, 34);
+            this.btnSend.TabIndex = 4;
+            this.btnSend.Text = "Send";
+            this.btnSend.UseVisualStyleBackColor = false;
+            this.btnSend.Click += new System.EventHandler(this.BTNsend_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCancel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnCancel.Font = new System.Drawing.Font("Lucida Sans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(13, 251);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(90, 34);
+            this.btnCancel.TabIndex = 7;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.button1_Click);
+            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -74,52 +100,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Email:";
             // 
-            // TBemail
-            // 
-            this.TBemail.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TBemail.Font = new System.Drawing.Font("Lucida Sans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBemail.Location = new System.Drawing.Point(124, 3);
-            this.TBemail.Name = "TBemail";
-            this.TBemail.Size = new System.Drawing.Size(315, 31);
-            this.TBemail.TabIndex = 2;
-            // 
-            // BTNlogin
-            // 
-            this.BTNlogin.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BTNlogin.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.BTNlogin.Font = new System.Drawing.Font("Lucida Sans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNlogin.Location = new System.Drawing.Point(354, 251);
-            this.BTNlogin.Name = "BTNlogin";
-            this.BTNlogin.Size = new System.Drawing.Size(90, 34);
-            this.BTNlogin.TabIndex = 4;
-            this.BTNlogin.Text = "Send";
-            this.BTNlogin.UseVisualStyleBackColor = false;
-            this.BTNlogin.Click += new System.EventHandler(this.BTNsend_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::Group_Project.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(370, -2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(125, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button1.Font = new System.Drawing.Font("Lucida Sans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(13, 251);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 34);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // TBmessage
             // 
             this.TBmessage.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -131,6 +111,15 @@
             this.TBmessage.TabIndex = 6;
             this.TBmessage.Text = "";
             // 
+            // TBemail
+            // 
+            this.TBemail.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TBemail.Font = new System.Drawing.Font("Lucida Sans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBemail.Location = new System.Drawing.Point(124, 3);
+            this.TBemail.Name = "TBemail";
+            this.TBemail.Size = new System.Drawing.Size(315, 31);
+            this.TBemail.TabIndex = 2;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -141,6 +130,17 @@
             this.label2.Size = new System.Drawing.Size(107, 23);
             this.label2.TabIndex = 0;
             this.label2.Text = "Message:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Group_Project.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(370, -2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(125, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // ContactUs
             // 
@@ -166,10 +166,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TBemail;
-        private System.Windows.Forms.Button BTNlogin;
+        private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RichTextBox TBmessage;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

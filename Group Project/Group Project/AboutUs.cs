@@ -17,9 +17,8 @@ namespace Group_Project
 
         private void BTNgoBack_Click(object sender, EventArgs e)
         {
+            Global.ShowLogin();
             this.Close();
-            Login login = new Login();
-            login.Show();
         }
     }
 }

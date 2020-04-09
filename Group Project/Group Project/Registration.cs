@@ -8,8 +8,7 @@ namespace Group_Project
 {
     public partial class Registration : Form
     {
-        private String firstname, lastname, creditcard, username, password1, password2;
-        private String connectionString = Global.CONN_STRING;
+        private readonly String connectionString = Global.CONN_STRING;
         private static Boolean _loggedIn = false;
 
         public static Boolean loggedIn
@@ -24,17 +23,12 @@ namespace Group_Project
 
         private void RegisterAccount(object sender, EventArgs e)
         {
-            firstname = txtRegisFName.Text.ToString();
-            lastname = txtRegisLName.Text.ToString();
-            creditcard = txtRegisCC.Text.ToString();
-            username = txtRegisUser.Text.ToString();
-            password1 = txtRegisPass1.Text.ToString();
-            password2 = txtRegisPass2.Text.ToString();
-            Console.WriteLine("Username: " + username + " and Password: " + password1);
+            Console.WriteLine("Username: " + txtRegisUser.Text + " and Password: " + txtRegisPass1.Text);
             if (CheckDatabase() && CheckRegistration())
             {
                 _loggedIn = true;
                 AddUser();
+                // TODO: Return to login or straight to catalog?
                 ReturnToLogin();
             }
         }
@@ -46,8 +40,7 @@ namespace Group_Project
 
         private void ReturnToLogin()
         {
-            Login login = new Login();
-            login.Show();
+            Global.ShowLogin();
             this.Close();
         }
 
@@ -60,7 +53,7 @@ namespace Group_Project
                 using (SqlCommand command = new SqlCommand(queryString, connection))
                 {
                     command.Parameters.Add("@username", SqlDbType.NVarChar, 15);
-                    command.Parameters["@username"].Value = username;
+                    command.Parameters["@username"].Value = txtRegisUser.Text;
                     command.Connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -68,7 +61,8 @@ namespace Group_Project
                         {
                             Console.WriteLine("New user detected!");
                             return true;
-                        } else
+                        }
+                        else
                         {
                             MessageBox.Show("Username already exist!");
                             txtRegisUser.Clear();
@@ -90,16 +84,16 @@ namespace Group_Project
             {
                 using (SqlCommand command = new SqlCommand(queryString, connection))
                 {
-                    command.Parameters.AddWithValue("@firstname", firstname);
-                    command.Parameters.AddWithValue("@lastname", lastname);
-                    command.Parameters.AddWithValue("@creditcard", creditcard);
-                    command.Parameters.AddWithValue("@username", username);
-                    command.Parameters.AddWithValue("@password", password1);
+                    command.Parameters.AddWithValue("@firstname", txtRegisFName.Text);
+                    command.Parameters.AddWithValue("@lastname", txtRegisLName.Text);
+                    command.Parameters.AddWithValue("@creditcard", txtRegisCC.Text);
+                    command.Parameters.AddWithValue("@username", txtRegisPass1.Text);
+                    command.Parameters.AddWithValue("@password", txtRegisPass2.Text);
                     command.Connection.Open();
                     command.ExecuteNonQuery();
                     connection.Close();
 
-                    Console.WriteLine("Username: " + username + " added!");
+                    Console.WriteLine("Username: " + txtRegisUser.Text + " added!");
                 }
             }
 
@@ -128,7 +122,8 @@ namespace Group_Project
             {
                 Console.WriteLine("Both passwords are correct.");
                 return true;
-            } else
+            }
+            else
             {
                 txtRegisPass1.Clear();
                 txtRegisPass2.Clear();
@@ -188,8 +183,8 @@ namespace Group_Project
         private SqlCommand SQLUserParam()
         {
             SqlCommand command = new SqlCommand();
-            command.Parameters.AddWithValue("@username", username);
-            command.Parameters.AddWithValue("@password", password1);
+            command.Parameters.AddWithValue("@username", txtRegisUser.Text);
+            command.Parameters.AddWithValue("@password", txtRegisPass1.Text);
             return command;
         }
 

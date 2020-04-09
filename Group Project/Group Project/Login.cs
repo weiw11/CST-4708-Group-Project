@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -7,7 +6,7 @@ namespace Group_Project
 {
     public partial class Login : Form
     {
-        private String connectionString = Global.CONN_STRING;
+        private readonly string connectionString = Global.CONN_STRING;
 
         public Login()
         {
@@ -19,6 +18,45 @@ namespace Group_Project
         {
             // TODO: Guest login?
             LoginCheck();
+        }
+
+        private void BTNregister_Click(object sender, EventArgs e)
+        {
+            Global.ShowRegistration();
+            this.Hide();
+        }
+
+        private void btnShortcut_Click(object sender, EventArgs e)
+        {
+            loadCatalog();
+        }
+
+        private void LLaboutus_Click(object sender, EventArgs e)
+        {
+            Global.ShowAboutUs();
+            this.Hide();
+        }
+
+        private void LLcontactus_Click(object sender, EventArgs e)
+        {
+            Global.ShowContactUs();
+            this.Hide();
+        }
+
+        private void loadCatalog()
+        {
+            String username = TBusername.Text;
+            if (String.IsNullOrEmpty(username))
+            {
+                username = "Guest";
+            }
+            Global.ShowCatalog(username);
+            this.Hide();
+        }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void LoginCheck()
@@ -49,50 +87,6 @@ namespace Group_Project
                     connection.Close();
                 }
             }
-        }
-
-        private void LLaboutus_Click(object sender, EventArgs e)
-        {
-            AboutUs aboutus = new AboutUs();
-            aboutus.Show();
-            this.Hide();
-        }
-
-        private void BTNregister_Click(object sender, EventArgs e)
-        {
-            Registration registration = new Registration();
-            registration.Show();
-            this.Hide();
-        }
-
-        private void LLcontactus_Click(object sender, EventArgs e)
-        {
-            ContactUs contactUs = new ContactUs();
-            contactUs.Show();
-            this.Hide();
-        }
-
-        private void btnShortcut_Click(object sender, EventArgs e)
-        {
-            loadCatalog();
-        }
-
-        private void loadCatalog()
-        {
-            String username = TBusername.Text;
-            if (String.IsNullOrEmpty(username))
-            {
-                username = "Guest";
-            }
-            Catalog c = new Catalog(username);
-            c.Show();
-            this.Hide();
-            Console.WriteLine("Catalog Opened.");
-        }
-
-        private void Login_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
         }
 
         private void TBpassword_KeyDown(object sender, KeyEventArgs e)
