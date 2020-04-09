@@ -15,5 +15,11 @@ namespace Group_Project
             Registration reg = new Registration();
             reg.Show();
         }
+
+        private void btnCatalogScreen_Click(object sender, EventArgs e)
+        {
+            Catalog c = new Catalog();
+            c.Show();
+        }
     }
 }

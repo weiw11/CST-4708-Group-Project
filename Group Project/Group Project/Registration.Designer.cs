@@ -48,7 +48,7 @@
             // 
             // txtRegisFName
             // 
-            this.txtRegisFName.Location = new System.Drawing.Point(123, 21);
+            this.txtRegisFName.Location = new System.Drawing.Point(136, 46);
             this.txtRegisFName.MaxLength = 25;
             this.txtRegisFName.Name = "txtRegisFName";
             this.txtRegisFName.Size = new System.Drawing.Size(180, 20);
@@ -57,7 +57,7 @@
             // lbRegisFName
             // 
             this.lbRegisFName.AutoSize = true;
-            this.lbRegisFName.Location = new System.Drawing.Point(57, 24);
+            this.lbRegisFName.Location = new System.Drawing.Point(70, 49);
             this.lbRegisFName.Name = "lbRegisFName";
             this.lbRegisFName.Size = new System.Drawing.Size(60, 13);
             this.lbRegisFName.TabIndex = 30;
@@ -65,7 +65,7 @@
             // 
             // txtRegisLName
             // 
-            this.txtRegisLName.Location = new System.Drawing.Point(123, 61);
+            this.txtRegisLName.Location = new System.Drawing.Point(136, 86);
             this.txtRegisLName.MaxLength = 16;
             this.txtRegisLName.Name = "txtRegisLName";
             this.txtRegisLName.Size = new System.Drawing.Size(180, 20);
@@ -74,7 +74,7 @@
             // lbRegisLName
             // 
             this.lbRegisLName.AutoSize = true;
-            this.lbRegisLName.Location = new System.Drawing.Point(56, 64);
+            this.lbRegisLName.Location = new System.Drawing.Point(69, 89);
             this.lbRegisLName.Name = "lbRegisLName";
             this.lbRegisLName.Size = new System.Drawing.Size(61, 13);
             this.lbRegisLName.TabIndex = 32;
@@ -82,7 +82,7 @@
             // 
             // txtRegisCC
             // 
-            this.txtRegisCC.Location = new System.Drawing.Point(123, 100);
+            this.txtRegisCC.Location = new System.Drawing.Point(136, 125);
             this.txtRegisCC.MaxLength = 25;
             this.txtRegisCC.Name = "txtRegisCC";
             this.txtRegisCC.Size = new System.Drawing.Size(180, 20);
@@ -91,7 +91,7 @@
             // lbRegisCC
             // 
             this.lbRegisCC.AutoSize = true;
-            this.lbRegisCC.Location = new System.Drawing.Point(55, 103);
+            this.lbRegisCC.Location = new System.Drawing.Point(68, 128);
             this.lbRegisCC.Name = "lbRegisCC";
             this.lbRegisCC.Size = new System.Drawing.Size(62, 13);
             this.lbRegisCC.TabIndex = 34;
@@ -99,7 +99,7 @@
             // 
             // txtRegisUser
             // 
-            this.txtRegisUser.Location = new System.Drawing.Point(123, 140);
+            this.txtRegisUser.Location = new System.Drawing.Point(136, 165);
             this.txtRegisUser.MaxLength = 25;
             this.txtRegisUser.Name = "txtRegisUser";
             this.txtRegisUser.Size = new System.Drawing.Size(180, 20);
@@ -108,7 +108,7 @@
             // lbRegisUser
             // 
             this.lbRegisUser.AutoSize = true;
-            this.lbRegisUser.Location = new System.Drawing.Point(59, 143);
+            this.lbRegisUser.Location = new System.Drawing.Point(72, 168);
             this.lbRegisUser.Name = "lbRegisUser";
             this.lbRegisUser.Size = new System.Drawing.Size(58, 13);
             this.lbRegisUser.TabIndex = 36;
@@ -116,7 +116,7 @@
             // 
             // txtRegisPass1
             // 
-            this.txtRegisPass1.Location = new System.Drawing.Point(123, 178);
+            this.txtRegisPass1.Location = new System.Drawing.Point(136, 203);
             this.txtRegisPass1.MaxLength = 16;
             this.txtRegisPass1.Name = "txtRegisPass1";
             this.txtRegisPass1.PasswordChar = '*';
@@ -126,7 +126,7 @@
             // lbRegisPass1
             // 
             this.lbRegisPass1.AutoSize = true;
-            this.lbRegisPass1.Location = new System.Drawing.Point(61, 181);
+            this.lbRegisPass1.Location = new System.Drawing.Point(74, 206);
             this.lbRegisPass1.Name = "lbRegisPass1";
             this.lbRegisPass1.Size = new System.Drawing.Size(56, 13);
             this.lbRegisPass1.TabIndex = 38;
@@ -134,7 +134,7 @@
             // 
             // txtRegisPass2
             // 
-            this.txtRegisPass2.Location = new System.Drawing.Point(123, 216);
+            this.txtRegisPass2.Location = new System.Drawing.Point(136, 241);
             this.txtRegisPass2.MaxLength = 16;
             this.txtRegisPass2.Name = "txtRegisPass2";
             this.txtRegisPass2.PasswordChar = '*';
@@ -144,7 +144,7 @@
             // lbRegisPass2
             // 
             this.lbRegisPass2.AutoSize = true;
-            this.lbRegisPass2.Location = new System.Drawing.Point(32, 219);
+            this.lbRegisPass2.Location = new System.Drawing.Point(45, 244);
             this.lbRegisPass2.Name = "lbRegisPass2";
             this.lbRegisPass2.Size = new System.Drawing.Size(85, 13);
             this.lbRegisPass2.TabIndex = 40;
@@ -152,7 +152,7 @@
             // 
             // btnRegCancel
             // 
-            this.btnRegCancel.Location = new System.Drawing.Point(35, 254);
+            this.btnRegCancel.Location = new System.Drawing.Point(48, 279);
             this.btnRegCancel.Name = "btnRegCancel";
             this.btnRegCancel.Size = new System.Drawing.Size(75, 23);
             this.btnRegCancel.TabIndex = 43;
@@ -162,7 +162,7 @@
             // 
             // btnRegReg
             // 
-            this.btnRegReg.Location = new System.Drawing.Point(228, 254);
+            this.btnRegReg.Location = new System.Drawing.Point(241, 279);
             this.btnRegReg.Name = "btnRegReg";
             this.btnRegReg.Size = new System.Drawing.Size(75, 23);
             this.btnRegReg.TabIndex = 42;
@@ -174,7 +174,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(341, 301);
+            this.ClientSize = new System.Drawing.Size(390, 359);
             this.Controls.Add(this.btnRegCancel);
             this.Controls.Add(this.btnRegReg);
             this.Controls.Add(this.txtRegisPass2);

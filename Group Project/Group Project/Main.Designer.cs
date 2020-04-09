@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnRegisterScreen = new System.Windows.Forms.Button();
+            this.btnCatalogScreen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRegisterScreen
@@ -41,14 +42,25 @@
             this.btnRegisterScreen.UseVisualStyleBackColor = true;
             this.btnRegisterScreen.Click += new System.EventHandler(this.btnRegisterScreen_Click);
             // 
+            // btnCatalogScreen
+            // 
+            this.btnCatalogScreen.Location = new System.Drawing.Point(233, 199);
+            this.btnCatalogScreen.Name = "btnCatalogScreen";
+            this.btnCatalogScreen.Size = new System.Drawing.Size(75, 23);
+            this.btnCatalogScreen.TabIndex = 1;
+            this.btnCatalogScreen.Text = "Catalog";
+            this.btnCatalogScreen.UseVisualStyleBackColor = true;
+            this.btnCatalogScreen.Click += new System.EventHandler(this.btnCatalogScreen_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 289);
+            this.ClientSize = new System.Drawing.Size(596, 314);
+            this.Controls.Add(this.btnCatalogScreen);
             this.Controls.Add(this.btnRegisterScreen);
             this.Name = "Main";
-            this.Text = "Form1";
+            this.Text = "Main";
             this.ResumeLayout(false);
 
         }
@@ -56,6 +68,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnRegisterScreen;
+        private System.Windows.Forms.Button btnCatalogScreen;
     }
 }
 

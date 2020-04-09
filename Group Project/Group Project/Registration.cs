@@ -14,7 +14,7 @@ namespace Group_Project
 
         public static Boolean loggedIn
         {
-            get { return loggedIn; }
+            get { return _loggedIn; }
         }
 
         public Registration()
@@ -36,7 +36,6 @@ namespace Group_Project
                 _loggedIn = true;
                 AddUser();
             }
-
         }
 
         private void CancelRegistration(object sender, EventArgs e)
