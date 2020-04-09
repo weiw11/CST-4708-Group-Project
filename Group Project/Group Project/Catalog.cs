@@ -64,6 +64,7 @@ namespace Group_Project
                     adapter.SelectCommand = command;
                     adapter.Fill(dt);
                 }
+                connection.Close();
             }
         }
 
@@ -110,7 +111,6 @@ namespace Group_Project
             dataGridView1.Height = dataGridView1.ColumnHeadersHeight + dataGridView1.Rows.Cast<DataGridViewRow>().Sum(r => r.Height);
         }
 
-
         private void dataGridView1_RowsChanged(object sender, DataGridViewRowsAddedEventArgs e)
         {
             scrollFix();
@@ -128,8 +128,7 @@ namespace Group_Project
 
         private void Catalog_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Login l = new Login();
-            l.Close();
+            Application.Exit();
         }
     }
 }

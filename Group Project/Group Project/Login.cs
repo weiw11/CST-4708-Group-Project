@@ -16,15 +16,15 @@ namespace Group_Project
 
         private void BTNlogin_Click(object sender, EventArgs e)
         {
-            using (SqlConnection myconn = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                using (SqlCommand mycommand = new SqlCommand("SELECT * FROM Customer WHERE Username = @username and Password = @password", myconn))
+                using (SqlCommand command = new SqlCommand("SELECT * FROM Customer WHERE Username = @username and Password = @password", connection))
                 {
-                    mycommand.Parameters.AddWithValue("@username", TBusername.Text);
-                    mycommand.Parameters.AddWithValue("@password", TBpassword.Text);
+                    command.Parameters.AddWithValue("@username", TBusername.Text);
+                    command.Parameters.AddWithValue("@password", TBpassword.Text);
 
-                    myconn.Open();
-                    using (SqlDataReader reader = mycommand.ExecuteReader())
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.HasRows)
                         {
@@ -39,6 +39,7 @@ namespace Group_Project
                             MessageBox.Show("Invalid Account Information. Please Try Again.", "Invalid Account Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
+                    connection.Close();
                 }
             }
         }
