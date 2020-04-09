@@ -90,6 +90,7 @@
             this.TBpassword.PasswordChar = '*';
             this.TBpassword.Size = new System.Drawing.Size(202, 31);
             this.TBpassword.TabIndex = 3;
+            this.TBpassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TBpassword_KeyDown);
             // 
             // lbUsername
             // 
@@ -228,6 +229,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();

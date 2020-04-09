@@ -8,6 +8,7 @@ namespace Group_Project
     public partial class Login : Form
     {
         private String connectionString = Global.CONN_STRING;
+
         public Login()
         {
             InitializeComponent();
@@ -15,6 +16,11 @@ namespace Group_Project
         }
 
         private void BTNlogin_Click(object sender, EventArgs e)
+        {
+            LoginCheck();
+        }
+
+        private void LoginCheck()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -28,7 +34,7 @@ namespace Group_Project
                     {
                         if (reader.HasRows)
                         {
-                            MessageBox.Show("Welcome.");
+                            loadCatalog();
                         }
                         else if (TBusername.Text == "" || TBpassword.Text == "")
                         {
@@ -67,9 +73,28 @@ namespace Group_Project
 
         private void btnShortcut_Click(object sender, EventArgs e)
         {
-            Catalog c = new Catalog();
+            loadCatalog();
+        }
+
+        private void loadCatalog()
+        {
+            Catalog c = new Catalog(TBusername.Text);
             c.Show();
             this.Hide();
+            Console.WriteLine("Catalog Opened.");
+        }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void TBpassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoginCheck();
+            }
         }
     }
 }

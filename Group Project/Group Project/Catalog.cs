@@ -24,6 +24,18 @@ namespace Group_Project
             loadData();
         }
 
+        public Catalog(String username)
+        {
+            InitializeComponent();
+
+            lbUsername.Text = username;
+
+            dataGridView1.DataSource = dt;
+            dataGridView1.AutoGenerateColumns = false;
+
+            loadData();
+        }
+
         private void loadData()
         {
             dt.Clear();
@@ -89,20 +101,38 @@ namespace Group_Project
             }
         }
 
-        private void txtSearch_Enter(object sender, EventArgs e)
-        {
-            if (txtSearch.Text.Equals("Enter search..."))
-            {
-                txtSearch.Text = "";
-            }
-        }
-
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 SearchCommand();
             }
+            if (e.KeyCode == Keys.Back && String.IsNullOrEmpty(txtSearch.Text))
+            {
+                loadData();
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtSearch.Text))
+            {
+                loadData();
+            }
+        }
+
+        private void txtSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (txtSearch.Text.Equals("Enter search..."))
+            {
+                txtSearch.Text = "";
+                loadData();
+            }
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SearchCommand();
         }
 
         // HACKED scroll fix for DataGridView
@@ -126,9 +156,40 @@ namespace Group_Project
             txtSearch.Text = "Enter search...";
         }
 
-        private void Catalog_FormClosed(object sender, FormClosedEventArgs e)
+        private void lbCart_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            // TODO: Add Cart menu
+            //Cart cart = new Cart();
+            //cart.Show();
+        }
+
+        private void lbUsername_Click(object sender, EventArgs e)
+        {
+            // TODO: Add user profile menu?
+            //Profile p = new Profile;
+            //p.Show();
+        }
+
+        private void btnAddToCart_Click(object sender, EventArgs e)
+        {
+            // TODO: Add stuff to cart
+        }
+
+        private void btnBackToLogin_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ShowLogin()
+        {
+            Login l = new Login();
+            l.Visible = true;
+            Console.WriteLine("Login screen unhid");
+        }
+
+        private void Catalog_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ShowLogin();
         }
     }
 }

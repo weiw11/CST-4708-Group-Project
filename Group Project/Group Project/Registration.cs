@@ -110,20 +110,23 @@ namespace Group_Project
 
         private Boolean CheckRegistration()
         {
-            if (string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(creditcard) || string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password1) || string.IsNullOrEmpty(password2))
+            if (string.IsNullOrEmpty(txtRegisFName.Text) || string.IsNullOrEmpty(txtRegisLName.Text) || string.IsNullOrEmpty(txtRegisCC.Text) || string.IsNullOrEmpty(txtRegisUser.Text) || string.IsNullOrEmpty(txtRegisPass1.Text) || string.IsNullOrEmpty(txtRegisPass2.Text))
             {
                 ttRegPass.Show("Please fill out all required fields.", btnRegisReg);
                 //MessageBox.Show("Please fill out all required fields.", "Required Fields Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Please fill out all required fields.");
                 return false;
             }
-            else if (lbRegisCC.Text.Length < 19)
+            else if (txtRegisCC.Text.Length < 19)
             {
                 ttRegPass.Show("Credit card number cannot contain less than 16 digits.", btnRegisReg);
                 //MessageBox.Show("Credit card number cannot contain less than 16 digits.", "Invalid Credit Card Number", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Credit card number cannot contain less than 16 digits.");
                 return false;
             }
-            else if (password1.Equals(password2) && IsValidPassword(password1) && password1.Length >= 8)
+            else if (txtRegisPass1.Text.Equals(txtRegisPass2.Text) && IsValidPassword(txtRegisPass1.Text) && txtRegisPass1.Text.Length >= 8)
             {
+                Console.WriteLine("Both passwords are correct.");
                 return true;
             } else
             {
@@ -137,6 +140,7 @@ namespace Group_Project
                 "* Digit(0 - 9)" + Environment.NewLine +
                 "* Special character(~`!@#$%^&*()+=_-{}[]\\|:;\"”’?/<>,.)", btnRegisReg);
                 //MessageBox.Show("Verify Password Does Not Match.", "Passwords Do Not Match", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Please make sure you entered the same password.");
             }
             return false;
         }
