@@ -13,6 +13,7 @@ namespace Group_Project
     {
         private String connectionString = Global.CONN_STRING;
         private DataTable dt = new DataTable();
+        private Boolean userClosing;
 
         public Catalog()
         {
@@ -177,6 +178,7 @@ namespace Group_Project
 
         private void btnBackToLogin_Click(object sender, EventArgs e)
         {
+            userClosing = true;
             this.Close();
         }
 
@@ -189,7 +191,39 @@ namespace Group_Project
 
         private void Catalog_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ShowLogin();
+            switch (e.CloseReason)
+            {
+                case CloseReason.ApplicationExitCall:
+                    Application.Exit();
+                    break;
+                case CloseReason.FormOwnerClosing:
+                    Application.Exit();
+                    break;
+                case CloseReason.MdiFormClosing:
+                    Application.Exit();
+                    break;
+                case CloseReason.None:
+                    Application.Exit();
+                    break;
+                case CloseReason.TaskManagerClosing:
+                    Application.Exit();
+                    break;
+                case CloseReason.UserClosing:
+                    if (userClosing)
+                    {
+                        ShowLogin();
+                    } else
+                    {
+                        Application.Exit();
+                    }
+                    break;
+                case CloseReason.WindowsShutDown:
+                    Application.Exit();
+                    break;
+                default:
+                    Application.Exit();
+                    break;
+            }
         }
     }
 }

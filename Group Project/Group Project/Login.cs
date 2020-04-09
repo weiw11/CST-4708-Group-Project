@@ -17,6 +17,7 @@ namespace Group_Project
 
         private void BTNlogin_Click(object sender, EventArgs e)
         {
+            // TODO: Guest login?
             LoginCheck();
         }
 
@@ -78,7 +79,12 @@ namespace Group_Project
 
         private void loadCatalog()
         {
-            Catalog c = new Catalog(TBusername.Text);
+            String username = TBusername.Text;
+            if (String.IsNullOrEmpty(username))
+            {
+                username = "Guest";
+            }
+            Catalog c = new Catalog(username);
             c.Show();
             this.Hide();
             Console.WriteLine("Catalog Opened.");
