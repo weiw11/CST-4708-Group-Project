@@ -12,6 +12,8 @@ namespace Group_Project
     public partial class Catalog : Form
     {
         private readonly String connectionString = Global.CONN_STRING;
+        private readonly String DEFAULT_SEARCH_TEXT = "Enter search...";
+        private readonly int IMAGE_SIZE = 200;
         private DataTable dt = new DataTable();
 
         public Catalog()
@@ -28,12 +30,38 @@ namespace Group_Project
         {
             InitializeComponent();
 
-            lbUsername.Text = username;
+            loadUser(username);
 
             dataGridView1.DataSource = dt;
             dataGridView1.AutoGenerateColumns = false;
 
             loadData();
+        }
+
+        private void loadUser(String username)
+        {
+            String queryString = "SELECT * FROM Customer WHERE Username = @username;";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(queryString, connection))
+                {
+                    command.Parameters.Add("@username", SqlDbType.NVarChar, 15);
+                    command.Parameters["@username"].Value = username;
+                    command.Connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read() == true)
+                        {
+                            lbUsername.Text = reader[1] + " " + reader[2];
+                        }
+                        else
+                        {
+                            lbUsername.Text = "Guest";
+                        }
+                        connection.Close();
+                    }
+                }
+            }
         }
 
         private void loadData()
@@ -80,65 +108,10 @@ namespace Group_Project
             }
         }
 
+        // Gets image from url
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            // Column 4 is image column in datagridview1
-            if (e.ColumnIndex == 4)
-            {
-                DataTable dt = dataGridView1.DataSource as DataTable;
-                if (dt != null && dt.Rows.Count > e.RowIndex && dt.Columns.Count > e.ColumnIndex)
-                {
-                    String url = dt.Rows[e.RowIndex][5].ToString();
-                    WebClient wc = new WebClient();
-                    byte[] bytes = wc.DownloadData(url);
-                    MemoryStream ms = new MemoryStream(bytes);
-                    e.Value = Image.FromStream(ms);
-                }
-            }
-            if (e.ColumnIndex == 5)
-            {
-                e.Value = "$" + e.Value;
-            }
-        }
-
-        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                SearchCommand();
-            }
-            if (e.KeyCode == Keys.Back && String.IsNullOrEmpty(txtSearch.Text))
-            {
-                loadData();
-            }
-        }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(txtSearch.Text))
-            {
-                loadData();
-            }
-        }
-
-        private void txtSearch_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (txtSearch.Text.Equals("Enter search..."))
-            {
-                txtSearch.Text = "";
-                loadData();
-            }
-        }
-
-        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            SearchCommand();
-        }
-
-        // HACKED scroll fix for DataGridView
-        private void scrollFix()
-        {
-            dataGridView1.Height = dataGridView1.ColumnHeadersHeight + dataGridView1.Rows.Cast<DataGridViewRow>().Sum(r => r.Height);
+            LoadImages(e);
         }
 
         private void dataGridView1_RowsChanged(object sender, DataGridViewRowsAddedEventArgs e)
@@ -151,9 +124,42 @@ namespace Group_Project
             scrollFix();
         }
 
-        private void txtSearch_Leave(object sender, EventArgs e)
+        private void LoadImages(DataGridViewCellFormattingEventArgs e)
         {
-            txtSearch.Text = "Enter search...";
+            // Column 4 is image column in datagridview1
+            if (e.ColumnIndex == 4)
+            {
+                DataTable dt = dataGridView1.DataSource as DataTable;
+                if (dt != null && dt.Rows.Count > e.RowIndex && dt.Columns.Count > e.ColumnIndex)
+                {
+                    String url = dt.Rows[e.RowIndex][5].ToString();
+                    WebClient wc = new WebClient();
+                    byte[] bytes = wc.DownloadData(url);
+                    MemoryStream ms = new MemoryStream(bytes);
+                    Image fullsizeImage = Image.FromStream(ms);
+                    Image newImage = fullsizeImage.GetThumbnailImage(IMAGE_SIZE, IMAGE_SIZE, null, IntPtr.Zero);
+                    e.Value = newImage;
+                }
+            }
+        }
+
+        private void ResizeTable()
+        {
+            //dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            // Console.WriteLine("Table Resized");
+        }
+
+        // HACKED scroll fix for DataGridView
+        private void scrollFix()
+        {
+            dataGridView1.Height = dataGridView1.ColumnHeadersHeight + dataGridView1.Rows.Cast<DataGridViewRow>().Sum(r => r.Height);
+        }
+
+        private void lbUsername_Click(object sender, EventArgs e)
+        {
+            // TODO: Add user profile menu?
+            //Global.ShowProfile();
+            //this.Close();
         }
 
         private void lbCart_Click(object sender, EventArgs e)
@@ -163,11 +169,45 @@ namespace Group_Project
             //this.Close();
         }
 
-        private void lbUsername_Click(object sender, EventArgs e)
+        private void SearchTextClear()
         {
-            // TODO: Add user profile menu?
-            //Global.ShowProfile();
-            //this.Close();
+            if (txtSearch.Text.Equals(DEFAULT_SEARCH_TEXT))
+            {
+                txtSearch.Text = "";
+                loadData();
+            }
+        }
+
+        private void SearchTextReset()
+        {
+            txtSearch.Text = DEFAULT_SEARCH_TEXT;
+        }
+
+        private void txtSearch_Enter(object sender, EventArgs e)
+        {
+            SearchTextClear();
+        }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Space)
+            {
+                SearchCommand();
+            }
+            if (e.KeyCode == Keys.Back && String.IsNullOrEmpty(txtSearch.Text))
+            {
+                loadData();
+            }
+        }
+
+        private void txtSearch_Leave(object sender, EventArgs e)
+        {
+            SearchTextReset();
+        }
+
+        private void txtSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            SearchTextClear();
         }
 
         private void btnAddToCart_Click(object sender, EventArgs e)
