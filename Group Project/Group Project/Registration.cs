@@ -87,7 +87,7 @@ namespace Group_Project
                     command.Parameters.AddWithValue("@firstname", txtRegisFName.Text);
                     command.Parameters.AddWithValue("@lastname", txtRegisLName.Text);
                     command.Parameters.AddWithValue("@creditcard", txtRegisCC.Text);
-                    command.Parameters.AddWithValue("@username", txtRegisPass1.Text);
+                    command.Parameters.AddWithValue("@username", txtRegisUser.Text);
                     command.Parameters.AddWithValue("@password", txtRegisPass2.Text);
                     command.Connection.Open();
                     command.ExecuteNonQuery();
