@@ -144,7 +144,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Group_Project.Properties.Resources.BackgroundReduced;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(885, 502);
+            this.ClientSize = new System.Drawing.Size(885, 511);
             this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "AboutUs";

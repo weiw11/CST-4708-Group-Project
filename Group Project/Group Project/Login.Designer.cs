@@ -65,15 +65,15 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(335, 140);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(335, 123);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // BTNregister
             // 
             this.BTNregister.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BTNregister.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.BTNregister.Font = new System.Drawing.Font("Lucida Sans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNregister.Location = new System.Drawing.Point(7, 89);
+            this.BTNregister.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNregister.Location = new System.Drawing.Point(7, 81);
             this.BTNregister.Name = "BTNregister";
             this.BTNregister.Size = new System.Drawing.Size(113, 35);
             this.BTNregister.TabIndex = 5;
@@ -129,10 +129,10 @@
             // 
             this.BTNlogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BTNlogin.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.BTNlogin.Font = new System.Drawing.Font("Lucida Sans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNlogin.Location = new System.Drawing.Point(186, 89);
+            this.BTNlogin.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNlogin.Location = new System.Drawing.Point(156, 81);
             this.BTNlogin.Name = "BTNlogin";
-            this.BTNlogin.Size = new System.Drawing.Size(90, 35);
+            this.BTNlogin.Size = new System.Drawing.Size(149, 35);
             this.BTNlogin.TabIndex = 4;
             this.BTNlogin.Text = "Login";
             this.BTNlogin.UseVisualStyleBackColor = false;
@@ -143,7 +143,7 @@
             this.LLaboutus.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.LLaboutus.AutoSize = true;
             this.LLaboutus.Font = new System.Drawing.Font("Lucida Sans", 12F);
-            this.LLaboutus.Location = new System.Drawing.Point(76, 5);
+            this.LLaboutus.Location = new System.Drawing.Point(76, 6);
             this.LLaboutus.Name = "LLaboutus";
             this.LLaboutus.Size = new System.Drawing.Size(78, 18);
             this.LLaboutus.TabIndex = 6;
@@ -173,19 +173,21 @@
             this.tableLayoutPanel2.Controls.Add(this.LLaboutus, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.LLcontactus, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.LLSplitter, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(274, 319);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(274, 301);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(335, 28);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(335, 30);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // LLcontactus
             // 
             this.LLcontactus.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.LLcontactus.AutoSize = true;
+            this.LLcontactus.BackColor = System.Drawing.Color.Transparent;
             this.LLcontactus.Font = new System.Drawing.Font("Lucida Sans", 12F);
-            this.LLcontactus.Location = new System.Drawing.Point(180, 5);
+            this.LLcontactus.LinkColor = System.Drawing.Color.Blue;
+            this.LLcontactus.Location = new System.Drawing.Point(180, 6);
             this.LLcontactus.Name = "LLcontactus";
             this.LLcontactus.Size = new System.Drawing.Size(91, 18);
             this.LLcontactus.TabIndex = 7;
@@ -199,7 +201,7 @@
             this.LLSplitter.AutoSize = true;
             this.LLSplitter.Font = new System.Drawing.Font("Lucida Sans", 14F);
             this.LLSplitter.ForeColor = System.Drawing.Color.Black;
-            this.LLSplitter.Location = new System.Drawing.Point(160, 3);
+            this.LLSplitter.Location = new System.Drawing.Point(160, 4);
             this.LLSplitter.Name = "LLSplitter";
             this.LLSplitter.Size = new System.Drawing.Size(14, 22);
             this.LLSplitter.TabIndex = 8;
@@ -207,12 +209,15 @@
             // 
             // btnShortcut
             // 
-            this.btnShortcut.Location = new System.Drawing.Point(650, 269);
+            this.btnShortcut.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnShortcut.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShortcut.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnShortcut.Location = new System.Drawing.Point(353, 366);
             this.btnShortcut.Name = "btnShortcut";
-            this.btnShortcut.Size = new System.Drawing.Size(162, 78);
+            this.btnShortcut.Size = new System.Drawing.Size(162, 34);
             this.btnShortcut.TabIndex = 3;
-            this.btnShortcut.Text = "Catalog";
-            this.btnShortcut.UseVisualStyleBackColor = true;
+            this.btnShortcut.Text = "Guest Login";
+            this.btnShortcut.UseVisualStyleBackColor = false;
             this.btnShortcut.Click += new System.EventHandler(this.btnShortcut_Click);
             // 
             // Login
@@ -221,7 +226,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Group_Project.Properties.Resources.BackgroundReduced;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(885, 502);
+            this.ClientSize = new System.Drawing.Size(885, 511);
             this.Controls.Add(this.btnShortcut);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.pbLogo);

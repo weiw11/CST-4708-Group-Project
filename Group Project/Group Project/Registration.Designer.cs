@@ -197,26 +197,28 @@
             // 
             this.btnRegCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRegCancel.AutoSize = true;
+            this.btnRegCancel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnRegCancel.Font = new System.Drawing.Font("Lucida Sans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegCancel.Location = new System.Drawing.Point(45, 225);
+            this.btnRegCancel.Location = new System.Drawing.Point(45, 232);
             this.btnRegCancel.Name = "btnRegCancel";
-            this.btnRegCancel.Size = new System.Drawing.Size(86, 48);
+            this.btnRegCancel.Size = new System.Drawing.Size(86, 33);
             this.btnRegCancel.TabIndex = 43;
             this.btnRegCancel.Text = "Cancel";
-            this.btnRegCancel.UseVisualStyleBackColor = true;
+            this.btnRegCancel.UseVisualStyleBackColor = false;
             this.btnRegCancel.Click += new System.EventHandler(this.btnRegCancelClick);
             // 
             // btnRegisReg
             // 
             this.btnRegisReg.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRegisReg.AutoSize = true;
+            this.btnRegisReg.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnRegisReg.Font = new System.Drawing.Font("Lucida Sans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegisReg.Location = new System.Drawing.Point(256, 225);
+            this.btnRegisReg.Location = new System.Drawing.Point(256, 232);
             this.btnRegisReg.Name = "btnRegisReg";
-            this.btnRegisReg.Size = new System.Drawing.Size(102, 48);
+            this.btnRegisReg.Size = new System.Drawing.Size(102, 33);
             this.btnRegisReg.TabIndex = 42;
             this.btnRegisReg.Text = "Register";
-            this.btnRegisReg.UseVisualStyleBackColor = true;
+            this.btnRegisReg.UseVisualStyleBackColor = false;
             this.btnRegisReg.Click += new System.EventHandler(this.RegisterAccount);
             // 
             // tableLayoutPanel1

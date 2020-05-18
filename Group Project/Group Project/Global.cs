@@ -59,17 +59,23 @@ namespace Group_Project
             Console.WriteLine("Showing Catalog");
         }
 
-        public static void ShowProfile()
+        public static void ShowProfile(String username)
         {
-            //Profile profile = new Profile();
-            //profile.Show();
+            Profile profile = new Profile(username);
+            profile.Show();
             Console.WriteLine("Showing Profile");
         }
 
-        public static void ShowCart()
+        public static void ShowCheckOut(String username)
         {
-            //Cart cart = new Cart();
-            //cart.Show();
+            CheckOut checkOut = new CheckOut(username);
+            checkOut.Show();
+            Console.WriteLine("Showing CheckOut");
+        }
+        public static void ShowCart(String username)
+        {
+            Cart cart = new Cart(username);
+            cart.Show();
             Console.WriteLine("Showing Cart");
         }
 

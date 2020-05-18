@@ -6,17 +6,16 @@ namespace Group_Project
 {
     public partial class Login : Form
     {
-        private readonly string connectionString = Global.CONN_STRING;
+        Database data;
 
         public Login()
         {
             InitializeComponent();
-            TBusername.Select();
+            data = new Database();
         }
 
         private void BTNlogin_Click(object sender, EventArgs e)
         {
-            // TODO: Guest login?
             LoginCheck();
         }
 
@@ -61,31 +60,17 @@ namespace Group_Project
 
         private void LoginCheck()
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (data.Login(TBusername.Text, TBpassword.Text))
             {
-                using (SqlCommand command = new SqlCommand("SELECT * FROM Customer WHERE Username = @username and Password = @password", connection))
-                {
-                    command.Parameters.AddWithValue("@username", TBusername.Text);
-                    command.Parameters.AddWithValue("@password", TBpassword.Text);
-
-                    connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.HasRows)
-                        {
-                            loadCatalog();
-                        }
-                        else if (TBusername.Text == "" || TBpassword.Text == "")
-                        {
-                            MessageBox.Show("Please enter a username and a password.", "Required Fields Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Invalid Account Information. Please Try Again.", "Invalid Account Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    connection.Close();
-                }
+                loadCatalog();
+            }
+            else if (TBusername.Text == "" || TBpassword.Text == "")
+            {
+                MessageBox.Show("Please enter a username and a password.", "Required Fields Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Invalid Account Information. Please Try Again.", "Invalid Account Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

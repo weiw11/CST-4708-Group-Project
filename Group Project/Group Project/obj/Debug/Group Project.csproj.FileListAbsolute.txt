@@ -1,0 +1,19 @@
+C:\Users\wenga\Desktop\Group Project\Group Project\bin\Debug\Comics.ldf
+C:\Users\wenga\Desktop\Group Project\Group Project\bin\Debug\Comics.mdf
+C:\Users\wenga\Desktop\Group Project\Group Project\bin\Debug\Group Project.exe.config
+C:\Users\wenga\Desktop\Group Project\Group Project\bin\Debug\Group Project.exe
+C:\Users\wenga\Desktop\Group Project\Group Project\bin\Debug\Group Project.pdb
+C:\Users\wenga\Desktop\Group Project\Group Project\obj\Debug\Group_Project.AboutUs.resources
+C:\Users\wenga\Desktop\Group Project\Group Project\obj\Debug\Group_Project.Catalog.resources
+C:\Users\wenga\Desktop\Group Project\Group Project\obj\Debug\Group_Project.ContactUs.resources
+C:\Users\wenga\Desktop\Group Project\Group Project\obj\Debug\Group_Project.Login.resources
+C:\Users\wenga\Desktop\Group Project\Group Project\obj\Debug\Group_Project.Properties.Resources.resources
+C:\Users\wenga\Desktop\Group Project\Group Project\obj\Debug\Group_Project.Registration.resources
+C:\Users\wenga\Desktop\Group Project\Group Project\obj\Debug\Group Project.csproj.GenerateResource.cache
+C:\Users\wenga\Desktop\Group Project\Group Project\obj\Debug\Group Project.csproj.CoreCompileInputs.cache
+C:\Users\wenga\Desktop\Group Project\Group Project\obj\Debug\Group Project.exe
+C:\Users\wenga\Desktop\Group Project\Group Project\obj\Debug\Group Project.pdb
+C:\Users\wenga\Desktop\Group Project\Group Project\obj\Debug\Group Project.csprojAssemblyReference.cache
+C:\Users\wenga\Desktop\Group Project\Group Project\obj\Debug\Group_Project.Cart.resources
+C:\Users\wenga\Desktop\Group Project\Group Project\obj\Debug\Group_Project.Profile.resources
+C:\Users\wenga\Desktop\Group Project\Group Project\obj\Debug\Group_Project.CheckOut.resources

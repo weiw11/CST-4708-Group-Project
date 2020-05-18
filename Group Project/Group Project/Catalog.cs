@@ -15,6 +15,11 @@ namespace Group_Project
         private readonly String DEFAULT_SEARCH_TEXT = "Enter search...";
         private readonly int IMAGE_SIZE = 200;
         private DataTable dt = new DataTable();
+        public static String userName;
+        public static String FirstName;
+        public static String LastName;
+        public static int userID;
+        public static int comicID;
 
         public Catalog()
         {
@@ -29,12 +34,10 @@ namespace Group_Project
         public Catalog(String username)
         {
             InitializeComponent();
-
+            userName = username;
             loadUser(username);
-
             dataGridView1.DataSource = dt;
             dataGridView1.AutoGenerateColumns = false;
-
             loadData();
         }
 
@@ -126,8 +129,8 @@ namespace Group_Project
 
         private void LoadImages(DataGridViewCellFormattingEventArgs e)
         {
-            // Column 4 is image column in datagridview1
-            if (e.ColumnIndex == 4)
+            // Column 0 is image column in datagridview1
+            if (e.ColumnIndex == 0)
             {
                 DataTable dt = dataGridView1.DataSource as DataTable;
                 if (dt != null && dt.Rows.Count > e.RowIndex && dt.Columns.Count > e.ColumnIndex)
@@ -143,13 +146,7 @@ namespace Group_Project
             }
         }
 
-        private void ResizeTable()
-        {
-            //dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            // Console.WriteLine("Table Resized");
-        }
 
-        // HACKED scroll fix for DataGridView
         private void scrollFix()
         {
             dataGridView1.Height = dataGridView1.ColumnHeadersHeight + dataGridView1.Rows.Cast<DataGridViewRow>().Sum(r => r.Height);
@@ -157,16 +154,13 @@ namespace Group_Project
 
         private void lbUsername_Click(object sender, EventArgs e)
         {
-            // TODO: Add user profile menu?
-            //Global.ShowProfile();
-            //this.Close();
+            Global.ShowProfile(userName);
         }
 
         private void lbCart_Click(object sender, EventArgs e)
         {
-            // TODO: Add Cart menu
-            //Global.ShowCart();
-            //this.Close();
+            Global.ShowCart(userName);
+            this.Hide();
         }
 
         private void SearchTextClear()
@@ -212,7 +206,16 @@ namespace Group_Project
 
         private void btnAddToCart_Click(object sender, EventArgs e)
         {
-            // TODO: Add stuff to cart
+            Database db = new Database();
+            if (userID == 0 || comicID == 0)
+            {
+                MessageBox.Show("This operation cannot be done.");
+            }
+            else
+            {
+                db.AddToCart(userID, comicID);
+            }
+            
         }
 
         private void btnBackToLogin_Click(object sender, EventArgs e)
@@ -224,7 +227,18 @@ namespace Group_Project
         private void Catalog_FormClosing(object sender, FormClosingEventArgs e)
         {
             // TODO: Handle opening profile/login when this closes.
-            //Global.FormCloseEVent(e);
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                String comicTitle = row.Cells["Column2"].Value.ToString();
+                Database db = new Database();
+                DataTable dt = db.FindComic(comicTitle);
+                comicID = int.Parse(dt.Rows[0]["Id"].ToString());
+            }
+           
         }
     }
 }
