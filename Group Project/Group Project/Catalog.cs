@@ -146,7 +146,6 @@ namespace Group_Project
             }
         }
 
-
         private void scrollFix()
         {
             dataGridView1.Height = dataGridView1.ColumnHeadersHeight + dataGridView1.Rows.Cast<DataGridViewRow>().Sum(r => r.Height);
@@ -215,18 +214,17 @@ namespace Group_Project
             {
                 db.AddToCart(userID, comicID);
             }
-            
         }
 
         private void btnBackToLogin_Click(object sender, EventArgs e)
         {
             Global.ShowLogin();
-            this.Close();
+            this.Hide();
         }
 
         private void Catalog_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // TODO: Handle opening profile/login when this closes.
+            Global.FormCloseEvent(e);
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -238,7 +236,6 @@ namespace Group_Project
                 DataTable dt = db.FindComic(comicTitle);
                 comicID = int.Parse(dt.Rows[0]["Id"].ToString());
             }
-           
         }
     }
 }

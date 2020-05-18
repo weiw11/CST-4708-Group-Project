@@ -35,7 +35,6 @@ namespace Group_Project
 
         private void populateCart()
         {
-
             allComics = new DataTable();
             Database db = new Database();
             allComics = db.PopulateCart(Catalog.userID);
@@ -99,7 +98,6 @@ namespace Group_Project
 
             for (int i = 0; i < allComics.Rows.Count; i++)
             {
-
                 price[i] = double.Parse(allComics.Rows[i]["Price"].ToString());
                 tax[i] = Math.Round(price[i] * 0.0825, 2);
                 total[i] = price[i] + tax[i];
@@ -113,7 +111,7 @@ namespace Group_Project
             lbTotalAmt.Text = "Total: $" + String.Format("{0:0.00}", sumTotal);
 
             Database db = new Database();
-            db.UpdateTotal(userID,sumTotal);
+            db.UpdateTotal(userID, sumTotal);
         }
 
         private void lbUsername_Click(object sender, EventArgs e)
@@ -138,6 +136,11 @@ namespace Group_Project
         {
             Global.ShowCatalog(userName);
             this.Hide();
+        }
+
+        private void Cart_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Global.FormCloseEvent(e);
         }
     }
 }

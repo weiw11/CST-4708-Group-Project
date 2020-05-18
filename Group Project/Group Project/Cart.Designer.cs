@@ -162,6 +162,7 @@ namespace Group_Project
             this.Name = "Cart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cart";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Cart_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

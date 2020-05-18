@@ -41,7 +41,7 @@ namespace Group_Project
         private void ReturnToLogin()
         {
             Global.ShowLogin();
-            this.Close();
+            this.Hide();
         }
 
         // Checks registration against database
@@ -97,9 +97,9 @@ namespace Group_Project
                 }
             }
 
-            this.Close();
+            this.Hide();
             MessageBox.Show("Registration Successful!");
-            // TODO: Needs to open login screen
+            Global.ShowLogin();
         }
 
         private Boolean CheckRegistration()
@@ -212,6 +212,11 @@ namespace Group_Project
                password.Any(c => IsSymbol(c)) &&
                password.Where(char.IsUpper).Count() > 0 &&
                password.Where(char.IsLower).Count() > 0;
+        }
+
+        private void Registration_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Global.FormCloseEvent(e);
         }
     }
 }

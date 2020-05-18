@@ -10,109 +10,136 @@ namespace Group_Project
             "|DataDirectory|\\Comics.mdf" +
             ";Integrated Security=True;Connect Timeout=30";
 
+        public static bool login;
+        public static AboutUs aboutUs;
+        public static ContactUs contactUs;
+        public static Registration registration;
+        public static Catalog catalog;
+        public static Profile profile;
+        public static CheckOut checkOut;
+        public static Cart cart;
+
         public static String CONN_STRING
         {
             get { return _CONN_STRING; }
         }
 
-        public static void ShowLogin()
+        public static bool ShowLogin()
         {
             _ = new Login
             {
                 Visible = true
             };
+            login = true;
             Console.WriteLine("Unhiding Login");
+            return true;
         }
 
-        public static void ShowAboutUs()
+        public static bool ShowAboutUs()
         {
-            AboutUs aboutUs = new AboutUs();
+            aboutUs = new AboutUs();
             aboutUs.Show();
             Console.WriteLine("Showing About Us");
+            return true;
         }
 
-        public static void ShowContactUs()
+        public static bool ShowContactUs()
         {
-            ContactUs contactUs = new ContactUs();
+            contactUs = new ContactUs();
             contactUs.Show();
             Console.WriteLine("Showing Contact Us");
+            return true;
         }
 
-        public static void ShowRegistration()
+        public static bool ShowRegistration()
         {
-            Registration registration = new Registration();
+            registration = new Registration();
             registration.Show();
             Console.WriteLine("Showing Registration");
+            return true;
         }
 
-        public static void ShowCatalog()
+        public static bool ShowCatalog()
         {
-            Catalog catalog = new Catalog();
+            catalog = new Catalog();
             catalog.Show();
             Console.WriteLine("Showing Catalog");
+            return true;
         }
 
-        public static void ShowCatalog(String username)
+        public static bool ShowCatalog(String username)
         {
-            Catalog catalog = new Catalog(username);
+            catalog = new Catalog(username);
             catalog.Show();
             Console.WriteLine("Showing Catalog");
+            return true;
         }
 
-        public static void ShowProfile(String username)
+        public static bool ShowProfile(String username)
         {
-            Profile profile = new Profile(username);
+            profile = new Profile(username);
             profile.Show();
             Console.WriteLine("Showing Profile");
+            return true;
         }
 
-        public static void ShowCheckOut(String username)
+        public static bool ShowCheckOut(String username)
         {
-            CheckOut checkOut = new CheckOut(username);
+            checkOut = new CheckOut(username);
             checkOut.Show();
             Console.WriteLine("Showing CheckOut");
-        }
-        public static void ShowCart(String username)
-        {
-            Cart cart = new Cart(username);
-            cart.Show();
-            Console.WriteLine("Showing Cart");
+            return true;
         }
 
-        public static void FormCloseEVent(FormClosingEventArgs e)
+        public static bool ShowCart(String username)
+        {
+            cart = new Cart(username);
+            cart.Show();
+            Console.WriteLine("Showing Cart");
+            return true;
+        }
+
+        public static void FormCloseEvent(FormClosingEventArgs e)
         {
             switch (e.CloseReason)
             {
                 case CloseReason.ApplicationExitCall:
+                    Console.WriteLine("Application exit call");
                     Application.Exit();
                     break;
 
                 case CloseReason.FormOwnerClosing:
+                    Console.WriteLine("Form owner closing");
                     Application.Exit();
                     break;
 
                 case CloseReason.MdiFormClosing:
+                    Console.WriteLine("Mdi form closing");
                     Application.Exit();
                     break;
 
                 case CloseReason.None:
+                    Console.WriteLine("Close reason none");
                     Application.Exit();
                     break;
 
                 case CloseReason.TaskManagerClosing:
+                    Console.WriteLine("Task manager closing");
                     Application.Exit();
                     break;
 
                 case CloseReason.UserClosing:
-
-                    // User close event
+                    Console.WriteLine("User close event");
+                    Application.Exit();
                     break;
 
                 case CloseReason.WindowsShutDown:
+                    Console.WriteLine("Windows shutdown");
                     Application.Exit();
                     break;
 
                 default:
+                    Console.WriteLine("Default closing");
                     Application.Exit();
                     break;
             }

@@ -40,7 +40,12 @@ namespace Group_Project
         private void ShowLogin()
         {
             Global.ShowLogin();
-            this.Close();
+            this.Hide();
+        }
+
+        private void ContactUs_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Global.FormCloseEvent(e);
         }
     }
 }

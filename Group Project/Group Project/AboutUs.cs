@@ -18,7 +18,12 @@ namespace Group_Project
         private void BTNgoBack_Click(object sender, EventArgs e)
         {
             Global.ShowLogin();
-            this.Close();
+            this.Hide();
+        }
+
+        private void AboutUs_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Global.FormCloseEvent(e);
         }
     }
 }

@@ -11,7 +11,6 @@ namespace Group_Project
 {
     public partial class CheckOut : Form
     {
-
         private DataTable dt = new DataTable();
         public static String userName;
         public static String userID;
@@ -38,7 +37,6 @@ namespace Group_Project
             tbLastName.Text = LastName;
             tbCreditCard.Text = CreditCard;
             lbPurchaseTotal.Text = "Purchase Total: $" + String.Format("{0:0.00}", Total);
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -52,7 +50,12 @@ namespace Group_Project
             Database db = new Database();
             db.ClearCart(Catalog.userID);
             Global.ShowCatalog(userName);
-            this.Close();
+            this.Hide();
+        }
+
+        private void CheckOut_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Global.FormCloseEvent(e);
         }
     }
 }

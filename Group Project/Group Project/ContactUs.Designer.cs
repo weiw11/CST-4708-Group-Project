@@ -154,6 +154,7 @@
             this.Name = "ContactUs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contact Us";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ContactUs_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -33,13 +33,17 @@ namespace Group_Project
             lbID.Text = "UserID: 000" + userID;
             lbFirstName.Text = "First Name: " + FirstName;
             lbLastName.Text = "Last Name: " + LastName;
-
         }
 
         private void btnBackToCatalog_Click(object sender, EventArgs e)
         {
             Global.ShowCatalog();
-            this.Close();
+            this.Hide();
+        }
+
+        private void Profile_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Global.FormCloseEvent(e);
         }
     }
 }

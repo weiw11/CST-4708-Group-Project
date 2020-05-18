@@ -6,7 +6,7 @@ namespace Group_Project
 {
     public partial class Login : Form
     {
-        Database data;
+        private Database data;
 
         public Login()
         {
@@ -55,7 +55,7 @@ namespace Group_Project
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            Global.FormCloseEvent(e);
         }
 
         private void LoginCheck()
